@@ -1,18 +1,26 @@
 ﻿using System.IO;
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Input;
 using Qboard.Systems;
+using Button = System.Windows.Controls.Button;
+using DataFormats = System.Windows.DataFormats;
+using DragEventArgs = System.Windows.DragEventArgs;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MessageBox = System.Windows.MessageBox;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace Qboard;
 
 public partial class MainWindow : Window
 {
     SerialThread serialT = new SerialThread();
-    SoundManager soundManager = new SoundManager();
+    SoundManager soundManager;
 
     public MainWindow()
     { 
+        soundManager = new SoundManager(this);
         InitializeComponent();
+        soundManager.InitializeContent();
         serialT.soundManager = soundManager;
         serialT.playSound += (int index) =>
         {
@@ -65,5 +73,12 @@ public partial class MainWindow : Window
     private void OnQuit(object sender, EventArgs e)
     {
         //TODO:Save preset
+    }
+
+    private void OnBoxKeyPressed(object sender, KeyEventArgs e)
+    {
+        if (e.Key != Key.Enter) return;
+        var box = sender as TextBox;
+        soundManager.PageName = box.Text;
     }
 }

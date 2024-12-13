@@ -13,108 +13,135 @@
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="HorizontalAlignment"
-                    Value="Center"/>
+                    Value="Center" />
             <Setter Property="Margin"
-                    Value="5"/>
+                    Value="5" />
         </Style>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel HorizontalAlignment="Left"
-                VerticalAlignment="Stretch"
-                Width="200"
-                Background="#D91656"
-                Grid.Column="0">
+                    VerticalAlignment="Stretch"
+                    Width="200"
+                    Background="#D91656"
+                    Grid.Column="0">
             <Label FontSize="20">Qboard</Label>
+            <StackPanel 
+                x:Name="Pages"
+                VerticalAlignment="Stretch">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Style.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius"
+                                        Value="20" />
+                            </Style>
+                        </Style.Resources>
+                        <Setter Property="BorderBrush"
+                                Value="Transparent" />
+                        <Setter Property="Width"
+                                Value="150" />
+                        <Setter Property="Height"
+                                Value="40" />
+                        <Setter Property="Margin"
+                                Value="10" />
+                    </Style>
+                </StackPanel.Resources>
+                <Label x:Name="DebugValue"
+                       VerticalAlignment="Top"
+                       FontSize="50">
+                    0
+                </Label>
+            </StackPanel>
         </StackPanel>
         <StackPanel VerticalAlignment="Stretch"
-                HorizontalAlignment="Stretch"
-                Grid.Column="1">
+                    HorizontalAlignment="Stretch"
+                    Grid.Column="1">
             <TextBox x:Name="TabName"
-                    VerticalAlignment="Top"
-                    Width="Auto"
-                    FontSize="30"
-                    TextAlignment="Center"
-                    Background="Transparent"
-                    BorderThickness="0">Placeholder</TextBox>
-            <Label x:Name="DebugValue"
-                    VerticalAlignment="Top"
-                    FontSize="50">0</Label>
+                     VerticalAlignment="Top"
+                     Width="Auto"
+                     FontSize="30"
+                     TextAlignment="Center"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     KeyDown="OnBoxKeyPressed">
+                Tab name
+            </TextBox>
         </StackPanel>
         <Grid HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                x:Name="ButtonGrid"
-                Grid.Column="1"
-                Grid.Row="1">
+              VerticalAlignment="Center"
+              x:Name="ButtonGrid"
+              Grid.Column="1"
+              Grid.Row="1">
             <Grid.Resources>
                 <Style TargetType="Button">
                     <Style.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius"
-                                    Value="20"/>
+                                    Value="20" />
                         </Style>
                     </Style.Resources>
                     <Setter Property="BorderBrush"
-                            Value="Transparent"/>
+                            Value="Transparent" />
                     <Setter Property="Width"
-                            Value="250"/>
+                            Value="250" />
                     <Setter Property="Height"
-                            Value="80"/>
+                            Value="80" />
                     <Setter Property="Margin"
-                            Value="20"/>
+                            Value="20" />
                     <Setter Property="AllowDrop"
-                            Value="True"/>
+                            Value="True" />
                 </Style>
             </Grid.Resources>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Button Tag="0"
                     Content="Button"
                     Click="OnClick"
                     Background="#EB5B00"
                     Grid.Row="0"
-                    Grid.Column="0"/>
+                    Grid.Column="0" />
             <Button Tag="1"
                     Content="Button"
                     Click="OnClick"
                     Background="#EB5B00"
                     Grid.Row="0"
-                    Grid.Column="1"/>
+                    Grid.Column="1" />
             <Button Tag="2"
                     Content="Button"
                     Click="OnClick"
                     Background="#EB5B00"
                     Grid.Row="0"
-                    Grid.Column="2"/>
+                    Grid.Column="2" />
             <Button Tag="3"
                     Content="Button"
                     Click="OnClick"
                     Background="#EB5B00"
                     Grid.Row="1"
-                    Grid.Column="0"/>
+                    Grid.Column="0" />
             <Button Tag="4"
                     Content="Button"
                     Click="OnClick"
                     Background="#EB5B00"
                     Grid.Row="1"
-                    Grid.Column="1"/>
+                    Grid.Column="1" />
             <Button Tag="5"
                     Content="Button"
                     Click="OnClick"
                     Background="#EB5B00"
                     Grid.Row="1"
-                    Grid.Column="2"/>
+                    Grid.Column="2" />
         </Grid>
     </Grid>
 </Window>

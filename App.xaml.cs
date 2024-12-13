@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace Soundboard;
+namespace Qboard;
 
 /// <summary>
 /// Interaction logic for App.xaml
